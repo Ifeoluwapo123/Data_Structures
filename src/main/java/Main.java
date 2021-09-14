@@ -14,12 +14,11 @@ public class Main {
         linkedList.removeLast();
 
 //        linkedList.print();
-
 //        linkedList.loop(2);
 
-//        System.out.println(linkedList.getKthNodeFromEnd(1));
-//        System.out.println(linkedList.getKthNodeFromEnd(2));
-//        System.out.println(linkedList.getKthNodeFromEnd(3));
+        System.out.println(linkedList.getKthNodeFromEnd(1));
+        System.out.println(linkedList.getKthNodeFromEnd(2));
+        System.out.println(linkedList.getKthNodeFromEnd(3));
         System.out.println(linkedList.getKthNodeFromEnd(-1));
 
         System.out.println(Arrays.toString(linkedList.toArray()));
