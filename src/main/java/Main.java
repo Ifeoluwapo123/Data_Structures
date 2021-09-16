@@ -9,19 +9,23 @@ public class Main {
         linkedList.addFirst(4);
         linkedList.addFirst(5);
         linkedList.addFirst(2);
-        linkedList.addLast(15);
+//        linkedList.addLast(15);
+//        linkedList.addLast(20);
+//        linkedList.addLast(60);
 
-        linkedList.removeLast();
-
+//        linkedList.removeLast();
 //        linkedList.print();
 //        linkedList.loop(2);
 
-        System.out.println(linkedList.getKthNodeFromEnd(1));
-        System.out.println(linkedList.getKthNodeFromEnd(2));
-        System.out.println(linkedList.getKthNodeFromEnd(3));
-        System.out.println(linkedList.getKthNodeFromEnd(-1));
+//        System.out.println(linkedList.getKthNodeFromEnd(1));
+//        System.out.println(linkedList.getKthNodeFromEnd(2));
+//        System.out.println(linkedList.getKthNodeFromEnd(3));
+//        System.out.println(linkedList.getKthNodeFromEnd(-1));
 
         System.out.println(Arrays.toString(linkedList.toArray()));
+        linkedList.printMiddle();
+        linkedList.printMiddle2();
+
 
 
 

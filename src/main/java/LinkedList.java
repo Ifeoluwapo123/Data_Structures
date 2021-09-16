@@ -1,13 +1,9 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.NoSuchElementException;
 
 public class LinkedList {
     private Node first;
     private Node last;
     private int size;
-
-    private List list = new ArrayList();
 
     private class Node{
         private int value;
@@ -82,8 +78,10 @@ public class LinkedList {
 
             while(current != null){
                 if(current.next == last){
+//                    last = current;
+//                    last.next = null;
+                    current.next = null;
                     last = current;
-                    last.next = null;
                 }
                 current = current.next;
             }
@@ -119,6 +117,48 @@ public class LinkedList {
         return array;
     }
 
+    public void printMiddle(){
+        if(isEmpty()) throw new NoSuchElementException();
+
+        var current = first;
+        var middle = first;
+        int index = 0;
+
+        while(current != null){
+            index++;
+
+            if(index % 2 == 0 && current != last){
+                middle = middle.next;
+            }
+
+            if(current == last) {
+                if (index % 2 == 0)
+                    System.out.println("[" + middle.value + ", " + middle.next.value + "]");
+                else
+                    System.out.println("["+middle.value+"]");
+            }
+
+            current = current.next;
+
+        }
+
+    }
+
+    public void printMiddle2(){
+        var a = first;
+        var b = first;
+
+        if(b != null && b.next != null){
+            b = b.next.next;
+            a = a.next;
+        }
+
+        if(b == last)
+            System.out.println("["+a.value+"]");
+        else
+            System.out.println("[" + a.value + ", " + a.next.value + "]");
+    }
+
     public void print(){
 
         var current = first;
@@ -131,20 +171,27 @@ public class LinkedList {
     public void loop(int recurrence){
 
         var current = first;
-        var counter = 0;
+        var track = first;
+        var counter = 1;
         while(current != null){
             System.out.println(current.value);
 
             if(current.next == null) {
-                current = first;
-                System.out.println("============================");
-                counter++;
+                current.next = track;
             }
-            else current = current.next;
+
+            current = current.next;
+
+            //terminating
+            if(current.next == track) counter++;
 
             if(counter == recurrence){
+                current.next = null;
+                last = current;
+                System.out.println(last.value);
                 break;
             }
+
         }
     }
 
