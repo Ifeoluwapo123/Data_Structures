@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public class LinkedList {
@@ -148,7 +149,7 @@ public class LinkedList {
         var a = first;
         var b = first;
 
-        if(b != null && b.next != null){
+        if(b != last && b.next != last){
             b = b.next.next;
             a = a.next;
         }
@@ -213,6 +214,27 @@ public class LinkedList {
         first = previous;
     }
 
+    public boolean hasLoop(){
+        var fast = first;
+        var slow = first;
+        var current =first;
+
+        while(current != null && fast != null){
+
+            for (int i = 0; i < 2; i++) {
+                if(fast.next != null) fast = fast.next;
+                else return false;
+            }
+
+            slow = slow.next;
+            if(fast == slow) return true;
+
+            current = current.next;
+        }
+
+        return false;
+    }
+
     /**
      * find the kth node from the end of the linked list in one pass.
      * */
@@ -241,4 +263,34 @@ public class LinkedList {
 
         return pointerOne.value;
     }
+
+    public static class Main {
+        public static void main(String[] args) {
+            LinkedList linkedList = new LinkedList();
+
+            linkedList.addFirst(4);
+            linkedList.addFirst(5);
+            linkedList.addFirst(2);
+            linkedList.addLast(15);
+            linkedList.addLast(20);
+            linkedList.addLast(60);
+
+    //        linkedList.removeLast();
+    //        linkedList.print();
+    //        linkedList.loop(2);
+
+    //        System.out.println(linkedList.getKthNodeFromEnd(1));
+    //        System.out.println(linkedList.getKthNodeFromEnd(2));
+    //        System.out.println(linkedList.getKthNodeFromEnd(3));
+    //        System.out.println(linkedList.getKthNodeFromEnd(-1));
+
+            System.out.println(Arrays.toString(linkedList.toArray()));
+            linkedList.printMiddle();
+            linkedList.printMiddle2();
+
+            System.out.println(linkedList.hasLoop());
+
+        }
+    }
+
 }
