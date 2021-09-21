@@ -9,9 +9,9 @@ public class Main {
         linkedList.addFirst(4);
         linkedList.addFirst(5);
         linkedList.addFirst(2);
-//        linkedList.addLast(15);
-//        linkedList.addLast(20);
-//        linkedList.addLast(60);
+        linkedList.addLast(15);
+        linkedList.addLast(20);
+        linkedList.addLast(60);
 
 //        linkedList.removeLast();
 //        linkedList.print();
@@ -26,8 +26,7 @@ public class Main {
         linkedList.printMiddle();
         linkedList.printMiddle2();
 
-
-
+        System.out.println(linkedList.hasLoop());
 
     }
 }

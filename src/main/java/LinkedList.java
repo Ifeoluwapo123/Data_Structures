@@ -148,7 +148,7 @@ public class LinkedList {
         var a = first;
         var b = first;
 
-        if(b != null && b.next != null){
+        if(b != last && b.next != last){
             b = b.next.next;
             a = a.next;
         }
@@ -211,6 +211,27 @@ public class LinkedList {
         last = first;
         last.next = null;
         first = previous;
+    }
+
+    public boolean hasLoop(){
+        var fast = first;
+        var slow = first;
+        var current =first;
+
+        while(current != null && fast != null){
+
+            for (int i = 0; i < 2; i++) {
+                if(fast.next != null) fast = fast.next;
+                else return false;
+            }
+
+            slow = slow.next;
+            if(fast == slow) return true;
+
+            current = current.next;
+        }
+
+        return false;
     }
 
     /**
