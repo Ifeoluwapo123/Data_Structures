@@ -1,3 +1,5 @@
+package LinkedList;
+
 public class DoublyLinkedList {
     Node head; // head of list
 
